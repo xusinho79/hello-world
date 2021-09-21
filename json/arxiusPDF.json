@@ -1,0 +1,7 @@
+[
+    {"titol": "Introducció a Javascript", "url": "./pdf/Tema1.pdf", "tipus": "tema"},
+    {"titol": "Sintaxi bàsica i variables", "url": "./pdf/Tema2.pdf", "tipus": "tema"},
+    {"titol": "Operadors", "url": "./pdf/Tema3bis.pdf", "tipus": "tema"},
+    {"titol": "Estructures de control", "url": "./pdf/Tema4.pdf", "tipus": "tema"},
+    {"titol": "Pràctica Javascript bàsic", "url": "./pdf/practicaJSbasic.pdf", "tipus": "pràctica"}
+]
