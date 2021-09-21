@@ -1,17 +1,19 @@
-llistaPDFs = [
+/*llistaPDFs = [
     {titol: "Introducció a Javascript", url: "./pdf/Tema1.pdf", tipus: "tema"},
     {titol: "Sintaxi bàsica i variables", url: "./pdf/Tema2.pdf", tipus: "tema"},
     {titol: "Operadors", url: "./pdf/Tema3bis.pdf", tipus: "tema"},
     {titol: "Estructures de control", url: "./pdf/Tema4.pdf", tipus: "tema"},
     {titol: "Pràctica Javascript bàsic", url: "./pdf/practicaJSbasic.pdf", tipus: "pràctica"},
-];
+];*/
 
 function importarPDFsAJAX(arxiu){
     var domini = "https://xusinho79.github.io/";
     var url = domini + arxiu;
     fetch(url)
-    .then(res => res.json())
-    .then(res => console.log(res))
+    .then((resp) => resp.json())
+    .then(function(data) {
+        var objecteJSON = data;
+        carregaPDFs(objecteJSON)})
     .catch( err => console.error(err));
 }
 
@@ -21,11 +23,11 @@ function generaTaulaPDFs(vector){
         cadena += "<tr><td>" + "<a " + "href='" + vector[i].url + "'>" + vector[i].titol + "</a>" + "</td></tr>";
     }
     cadena+="</table>";
-    console.log(cadena);
+    //console.log(cadena);
     return(cadena);
 }
 
-function carregaPDFs(){
+function carregaPDFs(llistaPDFs){
     var cadena=generaTaulaPDFs(llistaPDFs);
     var element= "contingut_pdf";
 
@@ -33,6 +35,7 @@ function carregaPDFs(){
 }
 
 window.onload = ()=> {
-    carregaPDFs();
+    //carregaPDFs();
     importarPDFsAJAX('./json/arxiusPDF.json');
+    //console.log(arxius);
 }
